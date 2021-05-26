@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "676203437309",
+    "project_id": "market-net",
+    "storage_bucket": "market-net.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:676203437309:android:1ead422ec3e2a230d7f294",
+        "android_client_info": {
+          "package_name": "com.ihabtech.market_net"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "676203437309-1cn2m3rabouv9hnbchd8kr3dc87v03o3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQk3KnGGxqjY8WDWArLHO8udaH0Ja8pPc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "676203437309-1cn2m3rabouv9hnbchd8kr3dc87v03o3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
