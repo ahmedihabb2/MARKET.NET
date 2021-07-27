@@ -8,9 +8,9 @@ class AuthServices
 
   //Get stream from firebase
 
-  Stream<userData> userStream()
+  Stream<userData> get userStream
   {
-    return _auth.authStateChanges().map(getuserID);
+    return _auth.idTokenChanges().map(getuserID);
   }
 
 
@@ -18,8 +18,7 @@ class AuthServices
   // get user id
   userData  getuserID(User user)
   {
-    return user !=null ? userData(uid: user.uid) : null;
-  }
+    return user !=null ? userData(uid: user.uid) : null;}
 
   //reg with email and password
   Future regWithEmailandPassword(String email , String password)

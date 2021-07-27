@@ -25,4 +25,21 @@ class ProductServices
     return prodList;
   }
 
+  Future<List<Product>> fetchProductsbyCategory(String category)
+  async{
+    QuerySnapshot snapShots = await products.where('Category',isEqualTo: category).get();
+    List<Product> prodList=[];
+    for(var doc in snapShots.docs)
+    {
+      prodList.add(
+          Product(name: doc["productName"],
+              category: doc["Category"],
+              description: doc["productDescription"],
+              picUrl: doc["productImage"],
+              price: doc["Price"]
+          )
+      );
+    }
+    return prodList;
+  }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:market_net/Auth%20Services/Wrapper.dart';
 import 'package:market_net/Auth%20Services/authServices.dart';
 import 'package:market_net/Authentication%20Pages/Signin.dart';
 import 'package:market_net/Database/UploadUserData.dart';
@@ -129,6 +130,12 @@ class _SignUpState extends State<SignUp> {
                  if(result !=null)
                    {
                      uploadUserData.uploadData(result.uid, nameCont.text, emailCont.text, addressCont.text, phoneCont.text);
+                     Navigator.pushReplacement(context,
+                         PageRouteBuilder(
+                           pageBuilder: (context, animation1, animation2) =>Wrapper(),
+                           transitionDuration: Duration(seconds: 0),
+                         )
+                     );
                    }
                  else{
 

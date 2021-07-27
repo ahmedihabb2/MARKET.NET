@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:market_net/Auth%20Services/authServices.dart';
 import 'package:provider/provider.dart';
 
+import 'Auth Services/Wrapper.dart';
 import 'Authentication Pages/Signin.dart';
 
 
@@ -11,17 +12,11 @@ async{
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(StreamProvider.value(
-    value: AuthServices().userStream(),
+    value: AuthServices().userStream,
     child: MaterialApp(
      debugShowCheckedModeBanner: false,
-      home: Home()  ,
+      home: Wrapper() ,
     ),
   ));
 }
 
-class Home extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return SignIn();
-  }
-}
