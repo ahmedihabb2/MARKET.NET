@@ -12,7 +12,7 @@ class SingleProduct extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(context, title: "Product - ${product.name}"),
+      appBar: CustomAppBar(title: "Product - ${product.name}"),
       body: SingleChildScrollView(
         child: Column(
           children: [

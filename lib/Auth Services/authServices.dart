@@ -4,11 +4,18 @@ import '../Models/UserModel.dart';
 
 class AuthServices
 {
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+  static final FirebaseAuth _auth = FirebaseAuth.instance;
+
+  //Get logged in uid
+  static String getLoggedInUid(){
+    User user = _auth.currentUser;
+    return user.uid;
+  }
 
   //Get stream from firebase
 
-  Stream<userData> get userStream
+
+  Stream<UserData> get userStream
   {
     return _auth.idTokenChanges().map(getuserID);
   }
@@ -16,9 +23,11 @@ class AuthServices
 
 
   // get user id
-  userData  getuserID(User user)
+  UserData  getuserID(User user)
   {
-    return user !=null ? userData(uid: user.uid) : null;}
+    return user !=null ? UserData(uid: user.uid) : null;
+  }
+
 
   //reg with email and password
   Future regWithEmailandPassword(String email , String password)

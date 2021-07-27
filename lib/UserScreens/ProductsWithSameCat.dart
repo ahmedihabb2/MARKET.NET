@@ -18,7 +18,6 @@ class _ProductsGroupState extends State<ProductsGroup> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        context,
         title: widget.CatName,
       ),
       body: FutureBuilder(
