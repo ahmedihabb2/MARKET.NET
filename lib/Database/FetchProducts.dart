@@ -25,5 +25,4 @@ class ProductServices
     return prodList;
   }
 
-
 }
