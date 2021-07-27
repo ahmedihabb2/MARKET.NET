@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:market_net/Database/UserManager.dart';
-import '../Auth Services/authServices.dart';
 import '../Models/UserModel.dart';
 import 'package:market_net/SharedModules/CustomAppBar.dart';
 
@@ -16,8 +15,8 @@ class UserProfile extends StatefulWidget {
 class _UserProfileState extends State<UserProfile> {
   UserData loggedInUser;
 
-  initUser()async{
-    loggedInUser = await UserManager.getUser(AuthServices.getLoggedInUid());
+  initUser() async{
+    loggedInUser = await UserData.initCurrentUser();
     setState(() {
       userName.text = loggedInUser.userName;
       address.text = loggedInUser.address;

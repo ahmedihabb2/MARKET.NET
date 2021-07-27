@@ -1,3 +1,6 @@
+import 'package:market_net/Auth%20Services/authServices.dart';
+import 'package:market_net/Database/UserManager.dart';
+
 class UserData
 {
   String uid;
@@ -5,6 +8,12 @@ class UserData
   String email;
   String address;
   String phoneNumber;
+  // level is either "admin" or "user"
+  String level;
 
-  UserData({this.uid, this.userName, this.email, this.address, this.phoneNumber});
+  UserData({this.uid, this.userName, this.email, this.address, this.phoneNumber, this.level});
+
+  static Future<UserData> initCurrentUser() async{
+    return await UserManager.getUser(AuthServices.getLoggedInUid());
+  }
 }

@@ -14,7 +14,9 @@ class UserManager{
         "username" : name,
         "email" : email,
         "address" : address,
-        "phonenumber" : phonenumber
+        "phonenumber" : phonenumber,
+        // by default any signup is a user, change to "admin" in firebase
+        "level": "user",
       }
     );
   }
