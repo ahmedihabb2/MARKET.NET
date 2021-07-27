@@ -10,7 +10,7 @@ AppBar CustomAppBar(context, {@required String title}) {
     ),
     backgroundColor: Colors.blueGrey,
     actions: [
-      title != "User Profile" ? IconButton(icon: Icon(Icons.person), onPressed: (){
+      title != UserProfile.title ? IconButton(icon: Icon(Icons.person), onPressed: (){
         Navigator.push(context, MaterialPageRoute(builder: (context) => UserProfile()));
       }) : SizedBox(),
     ],

@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:market_net/Auth%20Services/authServices.dart';
 import 'package:market_net/Authentication%20Pages/Signin.dart';
-import 'package:market_net/Database/UploadUserData.dart';
+import 'package:market_net/Database/UserManager.dart';
 import 'package:market_net/SharedModules/Styling.dart';
 
 class SignUp extends StatefulWidget {
@@ -20,7 +20,7 @@ class _SignUpState extends State<SignUp> {
   TextEditingController addressCont = TextEditingController();
   TextEditingController phoneCont = TextEditingController();
   AuthServices authServices = AuthServices();
-  UploadUserData uploadUserData = UploadUserData();
+  UserManager uploadUserData = UserManager();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
