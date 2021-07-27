@@ -29,6 +29,7 @@ class UserManager{
       email: user['email'],
       address: user['address'],
       phoneNumber: user['phonenumber'],
+      level: user['level'],
     );
   }
 

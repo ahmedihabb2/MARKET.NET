@@ -38,7 +38,7 @@ class _UserProfileState extends State<UserProfile> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[300],
-      appBar: CustomAppBar(context, title: "${UserProfile.title}"),
+      appBar: CustomAppBar(title: "${UserProfile.title}"),
       body:loggedInUser == null ? Center(
         child: CircularProgressIndicator(),
       ): SingleChildScrollView(

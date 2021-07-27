@@ -16,4 +16,9 @@ class UserData
   static Future<UserData> initCurrentUser() async{
     return await UserManager.getUser(AuthServices.getLoggedInUid());
   }
+
+  static Future<bool> isCurrentUserAdmin() async{
+    UserData currentUser = await initCurrentUser();
+    return currentUser.level == 'admin';
+  }
 }
