@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:market_net/AdminScreens/AddProducts.dart';
+import 'package:market_net/AdminScreens/AdminPanelHome.dart';
 import 'package:market_net/Models/UserModel.dart';
 import 'package:market_net/UserScreens/UserProfile.dart';
 
@@ -40,8 +40,8 @@ class _CustomAppBarState extends State<CustomAppBar> {
       ),
       backgroundColor: Colors.blueGrey,
       actions: [
-        isAdmin && widget.title != "Admin" ? IconButton(icon: Icon(Icons.admin_panel_settings), onPressed: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context) => (AddProducts())));
+        isAdmin && widget.title != AdminPanel.title ? IconButton(icon: Icon(Icons.admin_panel_settings), onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context) => (AdminPanel())));
         }) : SizedBox(),
         widget.title != UserProfile.title ? IconButton(icon: Icon(Icons.person), onPressed: (){
           Navigator.push(context, MaterialPageRoute(builder: (context) => UserProfile()));
