@@ -36,7 +36,8 @@ class ProductServices
               category: doc["Category"],
               description: doc["productDescription"],
               picUrl: doc["productImage"],
-              price: doc["Price"]
+              price: doc["Price"],
+            id: doc.id
           )
       );
     }

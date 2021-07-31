@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:market_net/AdminScreens/AdminPanelHome.dart';
 import 'package:market_net/Models/UserModel.dart';
+import 'package:market_net/UserScreens/Cart.dart';
 import 'package:market_net/UserScreens/UserProfile.dart';
 
 class CustomAppBar extends StatefulWidget implements PreferredSizeWidget{
@@ -45,6 +46,9 @@ class _CustomAppBarState extends State<CustomAppBar> {
         }) : SizedBox(),
         widget.title != UserProfile.title ? IconButton(icon: Icon(Icons.person), onPressed: (){
           Navigator.push(context, MaterialPageRoute(builder: (context) => UserProfile()));
+        }) : SizedBox(),
+        widget.title != Cart.title ? IconButton(icon: Icon(Icons.shopping_cart), onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context) => Cart()));
         }) : SizedBox(),
       ],
     );

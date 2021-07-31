@@ -5,5 +5,6 @@ class Product
   String price;
   String category;
   String picUrl;
-  Product({this.name,this.description,this.category,this.picUrl,this.price});
+  String id;
+  Product({this.name,this.description,this.category,this.picUrl,this.price,this.id});
 }

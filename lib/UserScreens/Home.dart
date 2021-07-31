@@ -7,6 +7,8 @@ import 'package:market_net/SharedModules/CustomAppBar.dart';
 import 'package:market_net/UserScreens/ProductsWithSameCat.dart';
 import 'package:market_net/UserScreens/SingleProduct.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:market_net/cartState.dart';
+import 'package:provider/provider.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -15,7 +17,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   ProductServices productServices = ProductServices();
-
+  List<bool> added;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,11 +30,14 @@ class _HomeState extends State<Home> {
               (BuildContext context, AsyncSnapshot<List<Product>> snapshot) {
             return snapshot.hasData
                 ? StaggeredGridView.countBuilder(
+              mainAxisSpacing: 2,
+                    crossAxisSpacing: 3,
                     shrinkWrap: true,
                     crossAxisCount: 2,
                     itemCount: snapshot.data.length,
                     staggeredTileBuilder: (index) => StaggeredTile.fit(1),
                     itemBuilder: (BuildContext context, int index) {
+                added = List<bool>.filled(snapshot.data.length, false);
                       return GestureDetector(
                         onTap: () {
                           Navigator.push(
@@ -53,31 +58,33 @@ class _HomeState extends State<Home> {
                               ),
                               Container(
                                 color: Colors.blueGrey[200],
-                                child: Row(
-                                  children: [
-                                    Expanded(
-                                      child: Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 4.0),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          mainAxisSize: MainAxisSize.min,
-                                          children: [
-                                            Text(snapshot.data[index].name,
-                                                style: TextStyle(
-                                                    fontWeight: FontWeight.bold,
-                                                    fontSize: 18)),
-                                            Text(snapshot.data[index].price,
-                                                style: TextStyle(
-                                                    fontWeight: FontWeight.w400,
-                                                    fontSize: 16))
-                                          ],
+                                child: Padding(
+                                  padding: const EdgeInsets.all(6.0),
+                                  child: Row(
+                                    children: [
+                                      Expanded(
+                                        child: Padding(
+                                          padding:
+                                              const EdgeInsets.only(left: 4.0),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              Text(snapshot.data[index].name,
+                                                  style: TextStyle(
+                                                      fontWeight: FontWeight.bold,
+                                                      fontSize: 18)),
+                                              Text(snapshot.data[index].price,
+                                                  style: TextStyle(
+                                                      fontWeight: FontWeight.w400,
+                                                      fontSize: 16))
+                                            ],
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                    AddToCartButton(),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               )
                             ],

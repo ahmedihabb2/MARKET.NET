@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:market_net/Models/Product.dart';
+import 'package:provider/provider.dart';
+
+import '../cartState.dart';
 
 class AddToCartButton extends StatelessWidget {
 
   final Color color;
+  BuildContext context;
+  Product product;
+  AddToCartButton({this.color,this.product,this.context});
 
-  AddToCartButton({this.color});
-
-  static void addItem(){
+   void addItem(){
+    Provider.of<AddToCart>(context, listen: false).addProductCart(product);
 
   }
 

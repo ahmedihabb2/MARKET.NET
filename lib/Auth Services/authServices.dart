@@ -17,7 +17,7 @@ class AuthServices
 
   Stream<UserData> get userStream
   {
-    return _auth.idTokenChanges().map(getuserID);
+    return _auth.authStateChanges().map(getuserID);
   }
 
 
